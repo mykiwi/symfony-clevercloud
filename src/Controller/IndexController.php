@@ -27,6 +27,7 @@ final class IndexController extends AbstractController
 
         return $this->render('form.html.twig', [
             'form' => $form,
+            'errors' => $form->getErrors(),
         ]);
     }
 }

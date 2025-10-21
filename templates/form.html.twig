@@ -9,6 +9,9 @@
 </style>
 
 <div class="example-wrapper">
+    {{ dump(errors) }}
+    <hr>
+
     {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
         {{ form_errors(form) }}
         {{ form_widget(form.email) }}
