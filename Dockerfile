@@ -4,14 +4,14 @@ RUN install-php-extensions \
 		pdo_sqlite \
 		intl \
 		opcache
-COPY composer* symfony.lock .
+COPY composer* symfony.lock ./
 RUN composer install \
 		--prefer-dist \
 		--no-autoloader \
 		--no-dev \
 		--no-scripts \
 		--no-progress
-COPY . .
+COPY . ./
 RUN set -eux; \
 	mkdir -p var/cache var/log; \
 	composer dump-autoload --classmap-authoritative --apcu --no-dev; \
