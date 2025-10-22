@@ -19,7 +19,7 @@ final class IndexController extends AbstractController
     }
 
     #[Route('/form', name: 'app_form')]
-    public function form(Request $request, #[Autowire(env: 'SYMFONY_TRUSTED_PROXIES')] string $ips): Response
+    public function form(Request $request, #[Autowire(env: 'TRUSTED_PROXIES')] string $ips): Response
     {
         $form = $this->createForm(FooType::class);
 
