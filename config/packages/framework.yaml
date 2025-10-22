@@ -1,7 +1,10 @@
 # see https://symfony.com/doc/current/reference/configuration/framework.html
+parameters:
+    env(CC_REVERSE_PROXY_IPS):
+
 framework:
     secret: '%env(APP_SECRET)%'
-    trusted_proxies: '%env(TRUSTED_PROXIES)%'
+    trusted_proxies: '127.0.0.1,%env(CC_REVERSE_PROXY_IPS)%'
 
     # Note that the session will be started ONLY if you read or write from it.
     session: true
