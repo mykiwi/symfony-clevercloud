@@ -9,9 +9,10 @@
 </style>
 
 <div class="example-wrapper">
+    SYMFONY_TRUSTED_PROXIES = <code>{{ ips }}</code>
+    <hr>
     {{ dump(errors) }}
     <hr>
-
     {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
         {{ form_errors(form) }}
         {{ form_widget(form.email) }}
