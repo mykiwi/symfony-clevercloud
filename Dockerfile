@@ -8,12 +8,13 @@ COPY composer* symfony.lock ./
 RUN composer install \
 		--prefer-dist \
 		--no-autoloader \
-		--no-dev \
 		--no-scripts \
 		--no-progress
 COPY . ./
+ENV APP_ENV=dev \
+    APP_DEBUG=true
 RUN set -eux; \
 	mkdir -p var/cache var/log; \
-	composer dump-autoload --classmap-authoritative --apcu --no-dev; \
-	composer dump-env prod; \
-	composer run-script --no-dev post-install-cmd; sync;
+	composer dump-autoload --classmap-authoritative --apcu; \
+	composer dump-env dev; \
+	composer run-script post-install-cmd; sync;
